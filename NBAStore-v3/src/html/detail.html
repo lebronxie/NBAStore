@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>产品详情页</title>
+	<link rel="stylesheet" type="text/css" href="/css/detail.css">
+	<script type="text/javascript" src="../libs/jquery/jquery-1.11.3.min.js"></script>
+</head>
+<body>
+	<header></header>
+	<main style="height:1000px">
+		hello，商品详情页
+	</main>
+	<footer></footer>
+	<script>
+		$(function(){
+
+			$("header").load("/html/commonhtml/head.html",function(){
+                  console.log("成功加载head ")
+			})
+				$("footer").load("/html/commonhtml/foot.html",function(){
+                  console.log("成功加载foot ")
+			})
+		})
+	</script>
+</body>
+</html>

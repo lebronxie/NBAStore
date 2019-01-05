@@ -1,0 +1,303 @@
+/*头部样式*/
+header {
+    background: #0a3665;
+}
+
+.header-box {
+    position: relative;
+}
+
+.header-box .header-list {
+    position: absolute;
+    top: 0;
+    right: 5%;
+    padding: 0;
+    z-index: 998;
+}
+
+.header-box .header-list ul {
+    padding: 0;
+    margin: 0 -12px 0 0;
+}
+
+.header-box .header-list li {
+    float: left;
+    color: #fff;
+    padding: 9px 0;
+    position: relative;
+}
+
+.header-box .header-list li a {
+    color: #ffffff;
+    padding: 0 12px;
+    font-size: 13px;
+    height: 16px;
+    line-height: 16px;
+    border-left: 1px solid #ffffff;
+}
+
+.header-box .header-list li:first-child a {
+    border-left: none;
+    font-weight: bold;
+}
+
+.header-box .header-list .icon-header-cart {
+    padding-left: 34px;
+}
+
+.icon-header-cart .icon {
+    width: 16px;
+    height: 14px;
+    display: block;
+    margin-right: 2px;
+    background: url(/static/img/common/cart-icons.png) -150px 0px no-repeat;
+    position: absolute;
+    top: 13px;
+    left: 12px;
+}
+
+.icon {
+    cursor: pointer;
+    font-style: normal;
+    font-weight: normal;
+}
+
+.icon-header-cart span {
+    color: #EC003D;
+    padding-top: 2px;
+    display: inline-block;
+}
+
+.header-box .header-list .icon-header-service {
+    padding-left: 34px;
+}
+
+.icon-header-service .icon {
+    width: 15px;
+    height: 16px;
+    display: block;
+    margin-right: 2px;
+    background: url(/static/img/common/icons.png) -35px -7px no-repeat;
+    position: absolute;
+    top: 10px;
+    left: 12px;
+}
+
+.header-box .header-logo {
+    padding: 47px 0 17px 0;
+}
+
+.header-box .header-search-box {
+    background: #fff;
+    position: absolute;
+    height: 40px;
+    left: 300px;
+    top: 55px;
+    border-radius: 4px;
+}
+
+#list {
+    width: 550px;
+    position: absolute;
+    z-index: 9999;
+    background: rgba(255,255,255,.8);
+    border-radius: 5px;
+    li {
+        padding-left: 15px;
+        height: 35px;
+        line-height: 35px;
+        cursor: pointer;
+    }
+    li:hover {
+        background: rgba(0, 0, 0, .3);
+        color: #0669b2;
+        border-radius: 5px;
+    }
+}
+
+.header-box .header-search-box input {
+    width: 540px;
+    height: 40px;
+    color: #666;
+    padding-left: 10px;
+    border-radius: 4px;
+}
+
+.header-box .header-search-box img {
+    position: absolute;
+    right: 10px;
+    top: 9px;
+    cursor: pointer;
+}
+
+.header-box .header-dingzhi {
+    position: absolute;
+    right: 150px;
+    top: 70px;
+}
+
+.header-box .header-dingzhi a {
+    font-size: 18px;
+    text-decoration: underline;
+    margin-right: 10px;
+}
+
+.header-nav {
+    position: relative;
+    width: 100%;
+    background: #0669b2;
+    height: 35px;
+    line-height: 35px;
+}
+
+.header-nav .w>ul>li {
+    position: relative;
+    float: left;
+    margin: 0 2% 0 0;
+    padding: 0;
+    text-align: center;
+    padding: 0 6px 0 6px;
+}
+
+.header-nav li img {
+    margin-top: 5px;
+    width: 60px;
+}
+
+.header-nav li a {
+    padding: 0 6px 0 6px;
+    display: block;
+    border-radius: 0;
+    line-height: 35px;
+    font-weight: bold;
+    color: #fff;
+    margin: 0;
+    border: 0;
+}
+
+.header-nav li a:hover {
+    background: rgba(0, 0, 0, .5);
+    color: #f00;
+}
+
+.header-nav li .classify-list {
+    width: 200px;
+    height: 0;
+    background: transparent;
+    position: absolute;
+    transition: .8s;
+    left: -80px;
+    top: 35px;
+    overflow: hidden;
+    border-radius: 5px;
+    z-index: 997;
+
+}
+
+.header-nav li .classify-list .ssj {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    margin-left: -10px;
+    border: 10px solid #fff;
+    border-right-color: transparent;
+    border-top-color: transparent;
+    border-left-color: transparent;
+}
+
+.header-nav li .classify-list>ul {
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    margin-top: 20px;
+    padding-top: 5px;
+    border-radius: 5px;
+}
+
+.header-nav li:hover .classify-list {
+    height: 350px;
+    z-index: 998;
+}
+
+.header-nav li:nth-child(5):hover .classify-list {
+    height: 170px;
+}
+
+.header-nav li:nth-child(6):hover .classify-list {
+    height: 210px;
+}
+
+.header-nav li:nth-child(7):hover .classify-list {
+    height: 100px;
+}
+
+.header-nav li:nth-child(8):hover .classify-list {
+    height: 275px;
+}
+
+.header-nav li:nth-child(9):hover .classify-list {
+    height: 240px;
+}
+
+.header-nav li:nth-child(10):hover .classify-list {
+    height: 135px;
+}
+
+.header-nav li:nth-child(11):hover .classify-list {
+    height: 135px;
+}
+
+.header-nav li:nth-child(12):hover .classify-list {
+    height: 450px;
+}
+
+.header-nav li .team .ssj {
+    left: 15%;
+}
+
+.header-nav li .team {
+    left: 0;
+    width: 400px;
+    float: left;
+}
+
+.header-nav li:hover .team {
+    height: 590px;
+}
+
+.header-nav li .team>ul>li {
+    float: left;
+    width: 200px;
+    height: 35px;
+    line-height: 35px;
+    cursor: pointer;
+}
+
+.header-nav li .team>ul>li>h3 {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.header-nav li .team>ul>li:hover {
+    background: #fff;
+    font-weight: normal;
+    color: #000;
+}
+
+.header-nav li ul li {
+    cursor: pointer;
+}
+
+.header-nav li ul li:hover {
+    background: rgba(0, 0, 0, .1);
+    font-weight: bold;
+    color: #00559a;
+}
+
+.header-nav li .east {
+    color: #00559a;
+}
+
+.header-nav li .west {
+    color: #ec003d;
+}

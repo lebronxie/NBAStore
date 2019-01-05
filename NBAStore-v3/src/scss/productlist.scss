@@ -1,0 +1,224 @@
+@import "commonscss/reset.scss";
+@import "commonscss/header.scss";
+@import "commonscss/footer.scss";
+
+$priceColor : #00559a;
+
+.list-nav {
+    width: 180px;
+    height: auto;
+    padding: 20px 30px 60px 30px;
+    background-color: #393f48;
+    margin-bottom: 100px;
+    h3{
+	    color: #fff;
+	    font-size: 18px;
+	    line-height: 18px;
+	    font-weight: bold;
+	    padding: 40px 0 12px 0;
+	    margin: 0 0 8px 0;
+	    border-bottom: 1px solid #5e646c;
+    }
+    li{
+	    padding: 7px 0;
+	    font-size: 14px;
+	    line-height: 14px;
+	    color: #fff;
+	    display: block;
+	    position: relative;
+	    a{
+			display: block;
+		    padding: 10px 0 10px 0;
+		    color: #fff;
+		    font-size: 14px;
+		    line-height: 14px;
+		    position: relative;
+		    +.list-erjinav{
+		    	height: 0px;
+		    	overflow: hidden;
+		    	li{ 
+		    		cursor: pointer;
+		    		padding-left: 25px;
+		    		font-size: 12px;
+		    		position: relative;
+		    	}
+		    }
+	    }
+    }
+   .list-price{
+   	  li{
+   	  	padding-left: 25px;
+   	  	font-size: 12px;
+   	  }
+   }
+}
+.icon.icon-list-plus {
+    position: absolute;
+    top: 12px;
+    right: 0;
+    background: url(/static/img/common/icons.png) -10px -319px no-repeat;
+    width: 10px;
+    height: 10px;
+    display: block;
+}
+.icon.icon-list-choice {
+    position: absolute;
+    top: 8px;
+    left: 0;
+    background: url(/static/img/common/icons.png) -63px -630px no-repeat;
+    width: 13px;
+    height: 13px;
+    display: block;
+}
+
+.list-removeOptions {
+    border-top: 1px solid #5e646c;
+    padding-top: 20px;
+    text-align: center;
+}
+.btn.btn-whiteBorder {
+    color: #ffffff;
+    border: 2px solid #ffffff;
+    background-color: transparent;
+    width: 150px;
+    height: 36px;
+    line-height: 36px;
+    font-size: 12px;
+    cursor:pointer;
+    transition:.3s;
+    border-radius: 3px;
+    &:hover{
+      background: #fff;
+      color:$priceColor;
+    }
+}
+
+.content{
+	width: 900px;
+	padding-left: 50px;
+	.content-menu{
+		height: 50px;
+		padding-top: 15px;
+		.list-sortBy,.list-prePage{
+			position: relative;
+			span{
+			display: block;
+			width: 150px;
+			height: 35px;
+			line-height: 35px;
+			border: 1px solid #cfcfcf;
+			border-radius: 3px;
+			text-indent: 30px;
+			a{
+				color:#000;
+			}
+			+ul{
+				border: 1px solid #ccc;
+			    text-indent: 30px;
+				width: 150px;
+				line-height: 35px;
+				border-radius: 3px;
+				position: absolute;
+				color:#ccc;
+				background: #fff;
+				display: none;
+
+				li.active{
+					color:$priceColor;
+				}
+				li:hover{
+					background: #eee;
+					color:$priceColor;
+				}
+			   }
+		    }
+		}
+		
+	}
+}
+.content .content-menu .list-prePage{
+	margin-right: 25px;
+}
+.content .content-menu .list-prePage span{
+	width: 180px;
+	+ul{
+		width: 180px;
+	}
+}
+.icon.icon-list-caret{
+	display: block;
+    width: 13px;
+    height: 7px;
+    background: url(/static/img/common/icons.png) -10px -736px no-repeat;
+    position: absolute;
+    right: 24px;
+    top: 50%;
+    margin-top: -3px;
+}
+.content-cover {
+	li{
+		float: left;
+		width: 20%;
+		box-sizing:border-box;
+		padding: 25px;
+		padding-left: 0;
+		padding-top: 0;
+		h3{
+			font-size: 12px;
+		    line-height: 14px;
+		    padding: 14px 5% 0 5%;
+		    margin: 0;
+		    height: 28px;
+		    overflow: hidden;
+		    font-weight: normal;
+		}
+		p{
+			font-size: 16px;
+		    font-weight: bold;
+		    padding: 14px 5% 0 5%;
+		    color: #000;
+		    span:first-child{
+                color:$priceColor;
+		    }
+		     span:last-child{
+		      color: #808285;
+              text-decoration: line-through;
+		    }
+		}
+	}
+	img{
+		width: 100%;
+	}
+}
+.showItem-page-box{
+    width: 87%;
+    padding: 0 11%;
+    text-align: right;
+    ul{
+        display: inline-block;
+	    li{ 
+	    	width: 48px;
+		    color: #000000;
+		    padding: 0;
+		    font-size: 14px;
+		    line-height: 14px;
+		    float: left;
+		    &.left,&.right{
+               font-family: "simsun";
+               font-weight: bold;
+		    }
+		    a{
+			    display: block;
+			    padding: 14px 16px;
+			    color: #000000;
+			    font-size: 14px;
+			    line-height: 14px;
+			    cursor: pointer;
+			   &.active{
+			   	color: #00559A;
+			   }
+		    }
+	    }
+    }
+
+}

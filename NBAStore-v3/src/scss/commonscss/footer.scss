@@ -1,0 +1,126 @@
+/* footer 部分样式 */
+footer{
+	background: #0a3665;
+	color: #fff;
+}
+.footer-box{
+	height: 403px;
+}
+.footer-box .footer-top{
+	padding: 40px 0 20px 0;
+	font-size: 16px;
+}
+.footer-box .footer-top dl{
+	float: left;
+	width: 25%;
+	line-height: 35px;
+}
+.footer-box .footer-top dl dt{
+	margin-bottom: 5px;
+}
+.footer-box .footer-top dl dd{
+	margin-bottom: 12px;
+	position: relative;
+}
+.footer-box .footer-top dl:last-child dd{
+	margin-bottom: 5px;
+}
+.footer-box .footer-top dl dd img+div{
+	position: absolute;
+	left:62px;
+	bottom: -20px;
+	width: 100px;
+	height: 100px;
+	border: 1px solid #000;
+	display: none;
+	background: url(/static/img/common/footer-wechat-qrCode.jpg) no-repeat ;
+	background-size: 100% 100%;
+	border: 5px solid #fff;
+}
+.footer-box .footer-top dl dd img+div::after{
+	 content: "";
+	 position: absolute;
+	 border:8px solid #fff;
+	 border-bottom-color: transparent;
+	 border-left-color: transparent;
+	 border-top-color: transparent;
+	 left:-21px;
+	 top: 50%;
+	 margin-top: 5px;
+}
+.footer-box .footer-top dl dd img:hover+div{
+     display: block;
+}
+
+.footer-box .footer-top dl dd img+.code-nbaapp{
+	background: url(/static/img/common/footer-app-qrCode.png) no-repeat ;
+	background-size: 100% 100%;
+}
+.footer-box .footer-top .contact-us a{
+     display: block;
+     padding-left: 25px;
+     position: relative;
+}
+.footer-box .footer-top .contact-us a i{
+		display: block;
+		position: absolute;
+		background-image: url(/static/img/common/icons.png);
+		background-repeat:no-repeat;
+		left: 0;
+}
+.footer-box .footer-top  .icon-footer-mail{
+	    width: 16px;
+	    height: 11px;
+	    background-position: -60px -10px;
+	    top: 12px;
+}
+.footer-box .footer-top  .icon-footer-phone{
+	    width: 14px;
+	    height: 14px;
+	    background-position: -86px -10px;
+	    top: 10px;
+}
+.footer-box .footer-top  .icon-footer-sevice{
+	    width: 14px;
+	    height: 14px;
+	    background-position: -35px -10px;
+	    top: 12px;
+}
+.footer-box .footer-top  .icon-footer-weibo{
+	    width: 16px;
+	    height: 14px;
+	    background-position: -280px -10px;
+	    top: 12px;
+}
+.footer-box .footer-bottom{
+	font-size: 12px;
+	border-top: 1px solid #fff;
+	padding-top: 15px;
+}
+.footer-box .footer-bottom .footer-beian p{
+	display: inline-block;
+	margin-right: 20px;
+}
+.footer-box .footer-bottom .footer-beian a{
+	font-size: 14px;
+}
+.footer-box .footer-bottom .footer-beian a:nth-of-type(2){
+	margin-left: 15px;
+	margin-right: 15px;
+	border-left: 1px solid #fff;
+	border-right: 1px solid #fff;
+	padding-left: 15px;
+	padding-right: 15px;
+}
+.footer-box .footer-bottom>div:nth-child(2){
+	margin-top: 15px;
+}
+.footer-box .footer-bottom>div:nth-child(2) p{
+	margin-left: 5px;
+	margin-right: 25px;
+	display: inline-block;
+	line-height: 25px;
+}
+.footer-box .footer-bottom .footer-copyright p:first-child{
+      margin-bottom: 20px;
+}
