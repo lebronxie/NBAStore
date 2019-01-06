@@ -4,7 +4,7 @@ require(["./requirejs-config"], () => {
 	require(["jquery", "header", "footer"], () => {
 	    //轮播图
 	       (function(){
-	       	   var $carousel = $("#carousel");
+	       	var $carousel = $("#carousel");
 			var $index = 0;
 			var $aBtns = $("#carousel ol li");
 			var $aImg = $("#carousel ul li")
@@ -27,15 +27,35 @@ require(["./requirejs-config"], () => {
 				$aBtns.eq($index).addClass("active").siblings().removeClass("active");
 				$aImg.eq($index).stop().fadeIn().siblings().stop().fadeOut();
 			})
+
+		    //判断页面加载完成后鼠标在没在轮播图中
+		    //在的话 就不要开启自动轮播功能
+		    //不在的话就开启自动轮播功能 
 			$carousel.timer = null;
-			$carousel.hover(function() {
+            /*$carousel.one("mouseout",function(e){
+		    	console.log("鼠标在轮播图中");
+		    	clearInterval($carousel.timer);
+		    })*/
+		   $carousel.one("mousemove",function(e){
+		    	console.log("鼠标在轮播图中");
+		    	clearInterval($carousel.timer);
+		    })
+			$carousel.timer = setInterval(() => {
+				$("#next").trigger("click");
+			}, 2000);
+
+			$carousel.on("mouseenter",function(){
 				clearInterval($carousel.timer);
-			}, (function autoPlay() {
+			});
+			$carousel.on("mouseleave",function(){
 				$carousel.timer = setInterval(() => {
 					$("#next").trigger("click");
 				}, 2000);
-				return autoPlay;
-			})());
+			});
+			/*$carousel.hover(function() {
+				console.log(1)
+				clearInterval($carousel.timer);
+			}, autoPlay);*/
            //阻止点击按钮文本被选中
 			$("#next").get(0).onselectstart = function () {
 				    return false;

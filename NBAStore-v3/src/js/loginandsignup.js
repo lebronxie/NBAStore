@@ -1,7 +1,7 @@
 //登陆注册页面的业务逻辑
 require(["./requirejs-config"], () => {
   //引入index需要依赖的模块
-  require(["jquery", "cookie", "header", "footer"], () => {
+  require(["jquery","url", "cookie", "header", "footer"], ($,url) => {
     //注册功能
     var flag = false,
       flag1 = true;
@@ -114,7 +114,7 @@ require(["./requirejs-config"], () => {
           }).parent().next().hide();
           //将数据交给后台
           $.ajax({
-            url: "http://localhost/project/nbastore/api/v1/signup.php",
+            url: url.baseUrlPhp + "/project/nbastore/api/v1/signup.php",
             type: "post",
             data: {
               phone: $("#signup_userphone").val(),
@@ -165,7 +165,7 @@ require(["./requirejs-config"], () => {
     //注册登陆 按钮 事件 
     $("#login").on("click", function() {
       $.ajax({
-        url: "http://localhost/project/nbastore/api/v1/login.php",
+        url:  url.baseUrlPhp + "/project/nbastore/api/v1/login.php",
         type: "post",
         data: {
           phone: $("#login_userphone").val(),
@@ -187,9 +187,9 @@ require(["./requirejs-config"], () => {
             }
             $("#loginandsignup").parent().html(`<a id="seeyou">注销</a>`);
             $("#login_userphone").val("");
-            $("#login_password").val("")
-            location.href = "/";
-
+            $("#login_password").val("");
+            // 跳回上一个网页
+            window.history.back(-1); 
           } else {
             alert(res.res_body);
             location.href = "/html/loginandsignup.html";
