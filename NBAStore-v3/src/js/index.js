@@ -48,10 +48,7 @@ require(["./requirejs-config"], () => {
 					$("#next").trigger("click");
 				}, 2000);
 			});
-			/*$carousel.hover(function() {
-				console.log(1)
-				clearInterval($carousel.timer);
-			}, autoPlay);*/
+			
            //阻止点击按钮文本被选中
 			$("#next").get(0).onselectstart = function () {
 				    return false;
