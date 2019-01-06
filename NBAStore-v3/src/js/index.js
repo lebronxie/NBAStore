@@ -32,11 +32,7 @@ require(["./requirejs-config"], () => {
 		    //在的话 就不要开启自动轮播功能
 		    //不在的话就开启自动轮播功能 
 			$carousel.timer = null;
-            /*$carousel.one("mouseout",function(e){
-		    	console.log("鼠标在轮播图中");
-		    	clearInterval($carousel.timer);
-		    })*/
-		   $carousel.one("mousemove",function(e){
+            $carousel.one("mouseout",function(e){
 		    	console.log("鼠标在轮播图中");
 		    	clearInterval($carousel.timer);
 		    })
