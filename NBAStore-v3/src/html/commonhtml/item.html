@@ -1,0 +1,17 @@
+
+    <script type="text/html" id="list-template">
+        {{each list item i}}
+	        <li>
+	            <div class="list-box">
+	                <a href="/html/detail.html?id={{item.id}}">
+	                   <img src="{{item.img}}">
+	                    </a>
+	                <h3>{{ item.title }}</h3>
+	                <p>
+	                    <span class="price-dis">¥{{ item.priceDis }}.00</span>
+	                    <span class="price-del">¥{{ item.priceDel }}.00</span>
+	                </p>
+	            </div>
+	        </li>
+		{{/each}}
+	</script>
