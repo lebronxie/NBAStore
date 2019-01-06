@@ -1,7 +1,12 @@
 //登陆注册页面的业务逻辑
 require(["./requirejs-config"], () => {
   //引入index需要依赖的模块
-  require(["jquery", "cookie", "header", "footer"], () => {
+  require(["jquery", "item","url","cookie", "header", "footer"], ($, item, url) => {
+
+         //实例化 列表
+         item.init(url.baseUrlRap+"/all-list");
+
+
   	    //分类栏鼠标点击 展开效果 左侧栏一级导航
   	    $(".list-yijinav>li>a").attr("log","off")
   	    $(".list-yijinav>li>a").on("click",function(){

@@ -156,7 +156,8 @@ $priceColor : #00559a;
     margin-top: -3px;
 }
 .content-cover {
-	li{
+	li{ 
+		list-style-type: none;
 		float: left;
 		width: 20%;
 		box-sizing:border-box;
