@@ -36,9 +36,11 @@ define(["jquery","cookie"], () => {
 			if ($.cookie("user")) {
 				$("#loginandsignup").parent().html(`<a id="seeyou">注销</a>`);
 				$("#seeyou").on("click", function() {
-					$(this).parent().html(`<a href="/html/loginandsignup.html" id="loginandsignup">登录/注册</a>`)
-					 $.removeCookie('user');
-					location.href="/html/loginandsignup.html"
+					if(confirm("确定退出登录")){
+						$(this).parent().html(`<a href="/html/loginandsignup.html" id="loginandsignup">登录/注册</a>`);
+						 $.removeCookie('user',{path:"/"});
+						 location.reload();
+					}
 				})
 			}
 		}
