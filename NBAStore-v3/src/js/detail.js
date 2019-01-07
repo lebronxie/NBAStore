@@ -3,10 +3,17 @@ require(["./requirejs-config"], () => {
   require(["jquery", "item","url","template","cookie", "header", "footer"], ($, item, url,template) => {
          //通过产品列表传过来的id 渲染 页面 
          var id = location.search.split("=")[1];
+         var path ;
+         //假装根据id 为1  去请求写好的接口  其余的随机接口
+         if(id == 1){
+             path = "/single";
+         }else{
+         	path = "/single-Random"
+         }
          //拿着这个id去请求数据
            $.ajax({
            	    data:{id:id},
-				url: url.baseUrlRap + "/single",
+				url: url.baseUrlRap + path,
 				type: "get",
 				success: function(res){
 					// console.log(res);
@@ -54,7 +61,7 @@ require(["./requirejs-config"], () => {
                         
                        //鼠标移动大图 超大图显示 放大镜显示 跟着鼠标移动
                        $(".content .big").on("mouseenter",function(){
-                       	  $(".content .bigger").show(600);
+                       	  $(".content .bigger").show(300);
                        	     magnify.show();
                        	    var maxLeft = $(".content .big").width() - magnify.width()
         	                var maxTop = $(".content .big").height() - magnify.height()
@@ -79,8 +86,43 @@ require(["./requirejs-config"], () => {
                        	  magnify.hide();
                        	  
 
-                       })    
 
+                       })    
+                       
+                       	  //选尺码
+                       	  $(".size span:gt(0)").on("click",function(){
+                       	  	 $(this).addClass("active").siblings().removeClass("active")
+                       	  })
+                       	// 添加购物车功能
+                       	$("#add").on("click",function(){
+                       		let count = $("#cart").html();
+                       		$("#cart").html(++count)
+                       		//把当前商品信息存在cookie 
+                       		let id = $("#product-id").html(),
+                       		    title = $("#itemName_pc").html(),
+                       		    picSrc = $(".rowlist-content li").eq(0).children().attr("src"),
+                       		    price = $("#pdpPrice_pc").html(),
+                       		    size = $(".size span.active").html(),
+                       		    number = parseInt($(".number").val());
+                       		let tempPrice = price.replace(/¥/g," ").trim().split(" ");
+                       		let newPrice = parseFloat(tempPrice[0]);
+                       		let oldPrice = parseFloat(tempPrice[1]);
+                   		  
+                   		   // 传给数据库
+                   		   $.ajax({
+				                url: url.baseUrlPhp + "/project/nbastore/api/v1/cart.php",
+					            type: "post",
+					            data: {id,title,picSrc,newPrice,oldPrice,size,number},
+					            success : function(res){
+					            	 console.log(res)
+					            },
+					            dataType:"json"
+
+                   		   })
+
+
+                       	})
+                       	// 立即购买功能 检测时候登录 未登录跳到登录界面 已登录到结算页面
 					}
 				}
 			})
