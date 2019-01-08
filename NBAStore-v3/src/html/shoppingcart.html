@@ -3,26 +3,95 @@
 <head>
 	<meta charset="UTF-8">
 	<title>购物车</title>
-
-	<link rel="stylesheet" type="text/css" href="/css/detail.css">
-	<script type="text/javascript" src="../libs/jquery/jquery-1.11.3.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="/css/shoppingcart.css">
+	 <script src="/libs/require/require.js" data-main="/js/shoppingcart.js"></script>
 </head>
 <body>
 	<header></header>
-	<main style="height:1000px">
-		hello，这里是购物车
+	<main >
+		<div class="w" id="cart-box">
+			<script type="text/art-template" id="cart-template">
+
+			<div id="shoppingcart">
+				<section>
+			       <h2 >购物车</h2>
+		         </section>
+
+		         <section >
+					<div class="cart-btn-box" >
+						<div class="cart-btn-all" id="all-btn">
+							<i class="icon icon-cart-maruChoice "></i>
+							<a >全选</a>
+						</div>
+						<div class="cart-btn-allDel " id="del-checked">
+							<a>删除</a>
+						</div>
+			             </div>
+		        </section>
+		        <section class="cart-content ">
+		        	 <div class="cart-content-header clearFix">
+						<div class="cart-width-name">NBA产品</div>
+						<div class="cart-width-pic">价格</div>
+						<div class="cart-width-qty">数量</div>
+						<div class="cart-width-picTotal">总计</div>
+						<div class="cart-width-remove">删除</div>
+					</div>
+					<div class="cart-content-body">
+						<table>
+							<tbody >
+									{{each cartList item i}}
+									     <tr>
+											<td>
+												<input type="checkbox" name="" class="fl checkbox">
+												<img src="{{ item.picSrc }}" class="fl">
+												<div class="fl">
+													<h3>
+														<a href="/html/detail.html?id=1" >
+		                                                 {{ item.title }}
+		                                                 </a>
+		                                              </h3>
+													<p>商品：<span class="proId">{{ item.proid }}</span></p>
+													<p>尺寸：<span>{{ item.size }}</span></p>
+													<p>颜色：<span>图片色</span></p>
+												</div>
+											</td>
+											<td>
+												<span class="cart-del">¥{{ item.oldPrice }}.00</span>
+												<span>¥{{ item.newPrice }}.00</span>
+											</td>
+											<td>
+												<input type="number" name="" value="{{ item.number }}" min="1" class="number">
+											</td>
+											<td>
+												<span class = "colprice">¥{{ item.number * item.newPrice }}</span>
+											</td>
+											<td>
+												<a class="coldel">删除</a>
+											</td>
+										</tr>
+									{{/each }}
+							
+								
+
+
+							</tbody>
+						</table>
+					</div>
+		        </section>
+		        <section class="total-box">
+		        	<div class="total">
+		        		<p class="clearFix"><span class="fl">订单总计</span><span class="fr" id="all-price">¥0.00</span></p>
+		        		<div class="cart-btnBox clearFix">
+							<button class="btn fl">结算</button>
+							<a href="/html/productlist.html" class="btn fr">继续购物</a>
+					    </div>
+		        	</div>
+		        </section>
+			</div>
+				</script>
+		</div>
 	</main>
 	<footer></footer>
-	<script>
-		$(function(){
-
-			$("header").load("/html/commonhtml/head.html",function(){
-                  console.log("成功加载head ")
-			})
-				$("footer").load("/html/commonhtml/foot.html",function(){
-                  console.log("成功加载foot ")
-			})
-		})
-	</script>
+	
 </body>
 </html>

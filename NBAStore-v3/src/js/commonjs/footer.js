@@ -10,12 +10,10 @@ define(["jquery"], () => {
 					resolve();
 				})
 			}).then(() => {
-				this.search();
+				// 待续
 			})
 		}
-		search(){
-			console.log("footer成功了")
-		}
+		
 	}
 	return new Footer();
 })

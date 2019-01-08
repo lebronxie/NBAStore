@@ -1,4 +1,4 @@
-define(["jquery","cookie"], () => {
+define(["url","jquery","cookie"], (url) => {
 	class Header {
 		constructor() {
 			this.init();
@@ -11,7 +11,8 @@ define(["jquery","cookie"], () => {
 				})
 			}).then(() => {
 				this.search();
-				this.hasCookie()
+				this.hasCookie();
+				this.headerCart();
 			})
 		}
 		search() {
@@ -43,6 +44,18 @@ define(["jquery","cookie"], () => {
 					}
 				})
 			}
+		}
+		headerCart(){
+               $.ajax({
+	                url: url.baseUrlPhp + "/project/nbastore/api/v1/getAllNum.php",
+	                type: "post",
+	                success: function(res) {
+	                    //拿到返回回来的 allNum 放在购物车图标小数字上
+	                    $("#cart").html(res.res_body.allNum);
+	                },
+	                dataType: "json"
+
+                })
 		}
 	}
 	return new Header();

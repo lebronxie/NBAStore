@@ -19,7 +19,6 @@ define(["jquery", "template"], ($, template) => {
 				success: function(res){
 					console.log(res);
 					if(res.res_code === 1){
-						let list = res.res_body.data;
 						//通过模板引擎渲染结构
 						let html = template("list-template", {list: res.res_body.data});
 						// console.log(html)

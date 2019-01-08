@@ -51,8 +51,13 @@ main section {
                             top: 0;
                         }
                         li {
+                            width: 86px;
+                            height: 86px;
                             margin: 10px 0;
                             border: 2px solid #d1d3d4;
+                            img{
+                                width: 100%;
+                            }
 
                             &.active {
                                 border: 2px solid #00559a;
@@ -131,7 +136,6 @@ main section {
                     top: 0;
                     width: 500px;
                     height: 500px;
-                    border: 1px solid #000;
                     z-index: 998;
                     display: none;
                     overflow: hidden;
