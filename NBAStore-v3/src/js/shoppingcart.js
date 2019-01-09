@@ -14,7 +14,7 @@ require(["./requirejs-config"], () => {
                                             <p> 您还未添加商品<br>点击&nbsp;<a href="/">此处</a>&nbsp;继续购物</p>
                                             <a onclick="javascript :history.back(-1);" class="btn btn-blueBorder">返回</a>
                                         </div>`)
-                    return
+                    return;
                 }
                 //如果请求成功并有购物车有商品
                 if (res.res_code === 1 && res.res_body.length > 0) {

@@ -13,6 +13,7 @@ define(["url","jquery","cookie"], (url) => {
 				this.search();
 				this.hasCookie();
 				this.headerCart();
+				this.isCeil()
 			})
 		}
 		search() {
@@ -57,6 +58,28 @@ define(["url","jquery","cookie"], (url) => {
 	                dataType: "json"
 
                 })
+		}
+		isCeil (){
+			$(window).on("scroll",function(){
+				if($(document).scrollTop() > $("header").height()){
+				 	$(".header-nav").css({
+				 		"position":"fixed",
+				 		"top":0,
+				 		"left":0,
+				 		"z-index":998
+				 	})
+				 	$("main").css({
+				 		"margin-top":35
+				 	})
+				 }else{
+                   $(".header-nav").css({
+				 		"position":"relative"
+				 	})
+                   $("main").css({
+				 		"margin-top":0
+				 	})
+				 }
+			})
 		}
 	}
 	return new Header();
