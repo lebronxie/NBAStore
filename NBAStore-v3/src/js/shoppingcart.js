@@ -158,7 +158,11 @@ require(["./requirejs-config"], () => {
                    
                   //点击支付按钮事件
                   $("#payAll").on("click",function(){
-                       if ($("#cart-box .checkbox:checked").length > 0) {
+                        // 判断是否登录
+                        if(!$.cookie("user")){
+                            alert("请先登录,登录后有优惠")
+                        }else{
+                             if ($("#cart-box .checkbox:checked").length > 0) {
                            // 将选中的商品传给数据库
                           $.each($("#cart-box .checkbox:checked"),function(i,item){
                             // console.log(res)
@@ -187,6 +191,9 @@ require(["./requirejs-config"], () => {
                        }else{
                             alert("请先选中商品再支付")
                        }
+                        }
+                        
+                      
                      
                   })
                   
