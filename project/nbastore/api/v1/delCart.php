@@ -8,11 +8,24 @@ $isSucc = mysql_query($sql);
 
 
 if($isSucc){
+     //获取所有数量 返回给前端
+	 $allNumber = mysql_query("select number from cart");
+	//这是一个结果集
+	$arr = array();
+	while($row = mysql_fetch_assoc($allNumber)){
+		array_push($arr, $row);
+	}
+	$allNum = 0;
+	foreach ($arr as $key => $value) {
+	      $allNum += $value["number"];
+	}
+
 		$arr = array(
 			'res_code' => 1, 
 			'res_message' => '成功',
 			'res_body' => array(
 				'proId' => $proId,
+				"allNum" => $allNum
 			)
 		);
 }else{

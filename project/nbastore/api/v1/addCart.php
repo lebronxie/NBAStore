@@ -44,11 +44,6 @@ if($res1 > 0){
 			foreach ($arr as $key => $value) {
 			      $allNum += $value["number"];
 			}
-
-
-
-
-
 		 if($isSucc){
 			$resarr = array(
 				'res_code' => 1, 
@@ -108,8 +103,5 @@ if($res1 > 0){
 	echo json_encode($arr);
  	
    }
-
-
-
     
 ?>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>支付页面</title>
+	<link rel="stylesheet" type="text/css" href="/css/pay.css">
+    <script src="/libs/require/require.js" data-main="/js/pay.js"></script>
+	
+</head>
+<body>
+	<header></header>
+	<main >
+		<div class="scroll"><a href="javascript:;"><img src="/static/img/index/scroll.png"></a></div>
+		<div class="w pay-box">
+			 <h3 class="pay-title">订单信息</h3>
+			 <p >收货地址信息</p>
+			 <div class="pay-box-content clearFix">
+			 	<div class="left fl">
+			 		<div class="addAdd-btn events-addBtn">
+						<p class="add-name events-nameVal">您还沒有收货地址</p>
+							<a class="btn  orderConfirmBtn">添加地址</a>
+							<p class="events-addressVal" style="margin-top: 20px;">您可以在<a href="javascript:;">地址簿</a>
+									中设置地址</p>
+				     </div>
+
+				     <div class="add-payRow-cn">
+						<p>付款方式<a href="javascript:;" class="pay-help">(查看支付帮助)</a>
+						</p>
+						<p class="paySubtitle">支付宝在线支付：</p>
+							<div class="pay-zfb">
+								<i class="icon icon icon-common-choiceM"></i>
+							</div>
+						<p class="paySubtitle">微信在线支付:</p>
+							<div class="pay-weixin">
+								<i class="icon icon icon-common-choiceM"></i>
+							</div>
+						</div>
+			 	</div>
+			 	<div class="right fl">
+			 		<p><span>订单产品总额</span><span id="proPrice">¥0.00</span></p>
+			 		<p><span>实付运费</span><span>¥0.00</span></p>
+			 		<p><span>折扣总额</span><span>-¥0.00</span></p>
+			 		<p><span>积分抵扣</span><span>-¥0.00</span></p>
+			 		<div><span>订单总计</span><span id="allPrice">¥0.00</span></div>
+                   <button>结算</button>	
+                    <ul id="payList">
+                    	<script type="text/art-template" id="pay-template">
+                    		{{ each payList item i}}
+	                		<li class="clearFix">
+	                			<img src="{{ item.picSrc }}" width="120" height="120" class="fl" style="margin-right: 3px">
+				                 <div>
+										<p class="dtl-pdn">{{ item.title }}</p>
+										<p class="dtl-box-row">
+											<span class="dtl-qty">数量：{{ item.number }}</span>
+											<span class="dtl-size">尺寸：{{ item.size }}</span>
+											<span class="dtl-color">颜色：图片色</span>
+										</p>
+										<p>
+											<span class="dtl-box-dis">¥{{ item.oldPrice  }}.00</span>
+											<span>{{ item.newPrice *   item.number}}.00</span>
+										</p>
+								</div>
+	                		</li>
+	                		{{ /each }}
+                       </script>
+                    </ul>
+			 	</div>
+               
+			 </div>
+		</div>
+	</main>
+	<footer></footer>
+	
+</body>
+</html>

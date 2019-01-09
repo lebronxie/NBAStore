@@ -43,6 +43,7 @@ define(["url","jquery","cookie"], (url) => {
 						 location.reload();
 					}
 				})
+			
 			}
 		}
 		headerCart(){

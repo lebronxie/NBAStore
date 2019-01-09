@@ -5,7 +5,7 @@ require(["./requirejs-config"], () => {
         var id = location.search.split("=")[1];
         var path;
         //假装根据id 为1  去请求写好的接口  其余的随机接口
-        if (id == 1) {
+        if (id == "NSJB18417100005") {
             path = "/single";
         } else {
             path = "/single-Random"
@@ -123,7 +123,43 @@ require(["./requirejs-config"], () => {
 
 
                     })
+
+                    
                     // 立即购买功能 检测时候登录 未登录跳到登录界面 已登录到结算页面
+                   $("#pay").on("click",function(){
+                        //先判断是否登录
+                        if(!$.cookie("user")){
+                           window.location.href = "/html/loginandsignup.html";
+                        }else{
+                            //发送请求 将该单品的信息传给数据库 
+                            
+
+                           let list = res.res_body.data;
+                           let proId = list.id;
+                           let title = list.title;
+                           let newPrice = list.priceDis;
+                           let oldPrice = list.priceDel;
+                           let picSrc = list.src.bigpic.bigpic1;
+                           let size = $(".size span.active").html();
+                           let number =  $(".number").val();
+                           // console.log(proId,title,newPrice,oldPrice,picSrc,size,number)
+                           $.ajax({
+                              type : "get",
+                              dataType : "json",
+                              url : url.baseUrlPhp + "/project/nbastore/api/v1/isBuyNow.php",
+                              data : {proId,title,newPrice,oldPrice,picSrc,size,number},
+                              success : function(res){
+                                // console.log(res);
+                                if(res.res_code === 1){
+                                    //添加isBuyNow 成功跳到支付界面
+                                   window.location.href = "/html/pay.html?id=" +   $("#product-id").html();
+                                }
+                              }
+                           })
+
+                            
+                        }
+                    })
                 }
             }
         })

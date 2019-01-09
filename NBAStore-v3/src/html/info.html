@@ -2,9 +2,10 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>产品详情</title>
+	<title>个人信息</title>
 	<link rel="stylesheet" type="text/css" href="/css/info.css">
-	<script type="text/javascript" src="../libs/jquery/jquery-1.11.3.min.js"></script>
+    <script src="/libs/require/require.js" data-main="/js/info.js"></script>
+	
 </head>
 <body>
 	<header></header>
@@ -12,16 +13,6 @@
 		<div class="scroll"><a href="javascript:;"><img src="/static/img/index/scroll.png"></a></div>
 	</main>
 	<footer></footer>
-	<script>
-		$(function(){
-
-			$("header").load("/html/commonhtml/head.html",function(){
-                  console.log("成功加载head ")
-			})
-				$("footer").load("/html/commonhtml/foot.html",function(){
-                  console.log("成功加载foot ")
-			})
-		})
-	</script>
+	
 </body>
 </html>
