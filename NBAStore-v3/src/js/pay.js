@@ -61,5 +61,12 @@ require(["./requirejs-config"], () => {
              })
         }
 
+        //不管从那个页面过来 给 支付宝 和 微信 两个按钮 添加点击事件
+        $(".pay-zfb,.pay-weixin").on("click",function(){
+          $(".icon-common-choiceM").removeClass("on");
+          $(this).children().toggleClass("on");
+
+        })
+
   })
 })

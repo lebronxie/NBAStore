@@ -17,7 +17,7 @@ if($res){
 			'res_message' => '成功',
 			'res_body' => $arr
 		);
-	mysql_query("delete from  allPay");
+	// mysql_query("delete from  allPay");
     echo json_encode($res_arr);
 }
 

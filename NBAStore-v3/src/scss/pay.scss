@@ -104,6 +104,9 @@ main .pay-box{
 					    width: 18px;
 					    height: 18px;
 					    background: url(/static/img/common/icons.png) -108px -1084px no-repeat;
+					    &.on{
+					    	background-position :-10px -1084px;
+					    }
 					}
 				}
 	    	}

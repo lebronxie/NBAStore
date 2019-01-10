@@ -163,6 +163,7 @@ require(["./requirejs-config"], () => {
                             alert("请先登录,登录后有优惠")
                         }else{
                              if ($("#cart-box .checkbox:checked").length > 0) {
+                           let allPayArr = [];
                            // 将选中的商品传给数据库
                           $.each($("#cart-box .checkbox:checked"),function(i,item){
                             // console.log(res)
@@ -172,22 +173,35 @@ require(["./requirejs-config"], () => {
                                 if(item["proid"] === current_proId){
                                     //将当前行的数据添加到结算pay数据库 带上数量
                                     item.number = current_number;
-                                console.log(item)
-
-                                 $.ajax({
+                                    allPayArr.push(item)
+                                }
+                           })
+                          })
+                            //console.log(allPayArr);//将数组总的数据拼接成这样的字符串发送php文件
+                            let allPayStr = "insert into allPay (proid,title,picSrc,newPrice,oldPrice,size,number) values";
+                            let tempArr = [];
+                            $.each(allPayArr,function(i,item){
+                               let tempStr = `('${item.proid}','${item.title}','${item.picSrc}','${item.newPrice}','${item.oldPrice}','${item.size}','${item.number}')`;
+                               // console.log(tempStr);
+                               tempArr.push(tempStr);
+                            })
+                            // console.log(tempArr);
+                            console.log(tempArr.join(" ,"));
+                            let Str = tempArr.join(" ,");
+                            allPayStr += Str;
+                            // console.log(allPayStr);
+                            // "insert into allPay (proid,title,picSrc,newPrice,oldPrice,size,number) values 
+                            // ('$proId','$title','$picSrc','$newPrice','$oldPrice','$size','$number')"
+                             $.ajax({
                                       type : "get",
                                       dataType : "json",
                                       url : url.baseUrlPhp + "/project/nbastore/api/v1/allPay.php",
-                                      data : item,
+                                      data : {allPayStr:allPayStr},
                                       success : function(res){
                                         console.log(res);
                                         window.location.href="/html/pay.html"
                                       }
                                    })
-                                }
-                           })
-                          })
-                            // window.location.href = "/html/pay.html";
                        }else{
                             alert("请先选中商品再支付")
                        }
