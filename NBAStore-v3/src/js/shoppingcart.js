@@ -34,29 +34,36 @@ require(["./requirejs-config"], () => {
                     $("#del-checked").on("click", function() {
                         if ($("#cart-box .checkbox:checked").length > 0) {
                             if (confirm("确定删除选中商品吗？")) {
+                                //将要删除的商品id 打包以数组的方式发给后台 
+                                let delArr = [];
                                 $.each($("#cart-box .checkbox:checked"), function(i, item) {
-                                    // $(item).parent().parent().find(".coldel").trigger("click");
-                                    let that = $(this);
-                                    let proId = $(item).parent().find(".proId").html()
+                                     let proId = $(item).parent().find(".proId").html();
+                                     delArr.push(proId);
+                                })
+                                     // console.log(delArr);
                                     $.ajax({
                                         data: {
-                                            proId: proId,
+                                            delArr: delArr,
                                         },
                                         url: url.baseUrlPhp + "/project/nbastore/api/v1/delCart.php",
                                         type: "post",
                                         dataType: "json",
                                         success: function(res) {
                                             console.log(res)
-                                            $("#cart").html(res.res_body.allNum);
-
-                                            that.parent().parent().remove();
-                                            let num = count(); //删除之后查页面还有多少条商品如果为0
-                                            if (num.length === 0) {
-                                                location.reload(); //刷新页面
+                                            if(res.res_code === 1){
+                                                 $("#cart").html(res.res_body.allNum);
+                                                 $("#cart-box .checkbox:checked").each(function(i,item){
+                                                    $(item).parent().parent().remove();
+                                                 })
+                                                let num = count(); //删除之后查页面还有多少条商品如果为0
+                                                if (num.length === 0) {
+                                                    location.reload(); //刷新页面
+                                                }
                                             }
+                                         
                                         }
                                     })
-                                })
+
 
                             }
                         }
