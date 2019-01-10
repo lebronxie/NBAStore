@@ -1,17 +1,17 @@
 //登陆注册页面的业务逻辑
 require(["./requirejs-config"], () => {
   //引入index需要依赖的模块
-  require(["jquery","url", "cookie", "header", "footer"], ($,url) => {
+  require(["jquery", "url", "cookie", "header", "footer"], ($, url) => {
     //注册功能
     var flag = false,
       flag1 = true;
-    $("#signup-from input").on("focus", function() {
+    $("#signup-from input").on("focus", function () {
       $(this).css({
         "border-color": "#ccc"
       }).parent().next().hide().next().hide();
 
     })
-    $("#signup-from input").on("blur", function() {
+    $("#signup-from input").on("blur", function () {
       //先验证输入框内容
       if (this === $("#signup_userphone")[0]) {
         var reg = /^[1][3,4,5,7,8][0-9]{9}$/;
@@ -64,7 +64,7 @@ require(["./requirejs-config"], () => {
     })
 
     //判断同意条款进行注册
-    $("#agree").on("click", function() {
+    $("#agree").on("click", function () {
       if ($(this).prop("checked")) {
         $("#signup").css({
           "background": "#00559a",
@@ -78,7 +78,7 @@ require(["./requirejs-config"], () => {
       }
 
     })
-    $("#signup").on("click", function() {
+    $("#signup").on("click", function () {
       if ($("#signup_userphone").val() === "") {
         $("#signup_userphone").css({
           "border-color": "red"
@@ -120,7 +120,7 @@ require(["./requirejs-config"], () => {
               phone: $("#signup_userphone").val(),
               password: $("#signup_password").val()
             },
-            success: function(res) {
+            success: function (res) {
               if (res.res_code === 0) {
                 alert("该手机号已注册请登录")
                 location.href = "/html/loginandsignup.html";
@@ -163,15 +163,15 @@ require(["./requirejs-config"], () => {
     }
 
     //注册登陆 按钮 事件 
-    $("#login").on("click", function() {
+    $("#login").on("click", function () {
       $.ajax({
-        url:  url.baseUrlPhp + "/project/nbastore/api/v1/login.php",
+        url: url.baseUrlPhp + "/project/nbastore/api/v1/login.php",
         type: "post",
         data: {
           phone: $("#login_userphone").val(),
           password: $("#login_password").val()
         },
-        success: function(res) {
+        success: function (res) {
           // console.log(res);
           // console.log($("#rememberme").prop("checked"));
           if (res.res_code) {
@@ -189,7 +189,7 @@ require(["./requirejs-config"], () => {
             $("#login_userphone").val("");
             $("#login_password").val("");
             // 跳回上一个网页
-            window.history.back(-1); 
+            window.history.back(-1);
           } else {
             alert(res.res_body);
             location.href = "/html/loginandsignup.html";

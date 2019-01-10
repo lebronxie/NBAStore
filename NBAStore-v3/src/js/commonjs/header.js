@@ -1,4 +1,4 @@
-define(["url","jquery","cookie"], (url) => {
+define(["url", "jquery", "cookie"], (url) => {
 	class Header {
 		constructor() {
 			this.init();
@@ -17,15 +17,15 @@ define(["url","jquery","cookie"], (url) => {
 			})
 		}
 		search() {
-			$("#search").on("input", function() {
+			$("#search").on("input", function () {
 				$("#list").html("").show()
 				var str = this.value;
 				// console.log(str);
-				$.getJSON("https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?cb=?&wd=" + str, function(res) {
+				$.getJSON("https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?cb=?&wd=" + str, function (res) {
 					var data = res.s
 					// console.log(data);
-					$.each(data, function(index, item) {
-						$("<li>").html(item).appendTo($("#list")).on("click", function() {
+					$.each(data, function (index, item) {
+						$("<li>").html(item).appendTo($("#list")).on("click", function () {
 							$("input").val(($(this).html()));
 							$("#list").hide();
 						});
@@ -37,50 +37,52 @@ define(["url","jquery","cookie"], (url) => {
 			//判断用户是否登录 即有没有user cookie
 			if ($.cookie("user")) {
 				$("#loginandsignup").parent().html(`<a id="seeyou">注销</a>`);
-				$("#seeyou").on("click", function() {
-					if(confirm("确定退出登录")){
+				$("#seeyou").on("click", function () {
+					if (confirm("确定退出登录")) {
 						$(this).parent().html(`<a href="/html/loginandsignup.html" id="loginandsignup">登录/注册</a>`);
-						 $.removeCookie('user',{path:"/"});
-						 location.reload();
+						$.removeCookie('user', {
+							path: "/"
+						});
+						location.reload();
 					}
 				})
-			
+
 			}
 		}
-		headerCart(){
-               $.ajax({
-	                url: url.baseUrlPhp + "/project/nbastore/api/v1/getAllNum.php",
-	                type: "post",
-	                success: function(res) {
-	                    //拿到返回回来的 allNum 放在购物车图标小数字上
-	                    $("#cart").html(res.res_body.allNum);
-	                    
-	                },
-	                dataType: "json"
+		headerCart() {
+			$.ajax({
+				url: url.baseUrlPhp + "/project/nbastore/api/v1/getAllNum.php",
+				type: "post",
+				success: function (res) {
+					//拿到返回回来的 allNum 放在购物车图标小数字上
+					$("#cart").html(res.res_body.allNum);
 
-                })
+				},
+				dataType: "json"
+
+			})
 		}
-		isCeil (){
-			$(window).on("scroll",function(){
-				if($(document).scrollTop() > $("header").height()){
-				 	$(".header-nav").css({
-				 		"position":"fixed",
-				 		"top":0,
-				 		"left":0,
-				 		"z-index":998
-				 	})
-				 	$("main").css({
-				 		"margin-top":35
-				 	})
-				 }else{
-                   $(".header-nav").css({
-				 		"position":"relative",
-				 		"z-index" :0
-				 	})
-                   $("main").css({
-				 		"margin-top":0
-				 	})
-				 }
+		isCeil() {
+			$(window).on("scroll", function () {
+				if ($(document).scrollTop() > $("header").height()) {
+					$(".header-nav").css({
+						"position": "fixed",
+						"top": 0,
+						"left": 0,
+						"z-index": 998
+					})
+					$("main").css({
+						"margin-top": 35
+					})
+				} else {
+					$(".header-nav").css({
+						"position": "relative",
+						"z-index": 0
+					})
+					$("main").css({
+						"margin-top": 0
+					})
+				}
 			})
 		}
 	}

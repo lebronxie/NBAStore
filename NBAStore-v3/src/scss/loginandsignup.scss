@@ -3,13 +3,15 @@
 @import "commonscss/footer.scss";
 //登陆注册 main样式
 
-main{
-	min-height: 600px;
+main {
+    min-height: 600px;
     max-width: 1440px;
 }
-main .w{
-	padding-bottom: 60px;
+
+main .w {
+    padding-bottom: 60px;
 }
+
 .log-title h2 {
     font-size: 28px;
     color: #00559a;
@@ -18,93 +20,107 @@ main .w{
     padding: 34px 0 20px 0;
     margin: 0;
 }
+
 .log-subTitle {
     width: 100%;
     margin: 0;
     padding: 30px 0 24px 0;
 }
+
 .log-subTitle .log-subTitleBlue {
     font-size: 18px;
     line-height: 18px;
     color: #00539c;
-    font-family: "Helvetica Neue",Arial,"微软雅黑","Microsoft YaHei","黑体","SimHei","宋体","SimSun",sans-serif;
+    font-family: "Helvetica Neue", Arial, "微软雅黑", "Microsoft YaHei", "黑体", "SimHei", "宋体", "SimSun", sans-serif;
 }
+
 .log-subTitle p {
     font-size: 14px;
     line-height: 14px;
     color: #939090;
-    font-family: Arial,"Helvetica Neue","微软雅黑","Microsoft YaHei","黑体","SimHei","宋体","SimSun",sans-serif;
+    font-family: Arial, "Helvetica Neue", "微软雅黑", "Microsoft YaHei", "黑体", "SimHei", "宋体", "SimSun", sans-serif;
     margin-bottom: 10px;
 }
-.log-subTitle p a{
-	color: #939090;
+
+.log-subTitle p a {
+    color: #939090;
 }
 
-.login{
-	width: 35%;
-	padding-right: 100px;
+.login {
+    width: 35%;
+    padding-right: 100px;
 }
-.login .login-from{
+
+.login .login-from {}
+
+.login .login-from div.inputtext input {
+    width: 250px;
+    height: 35px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    float: right;
+    padding-left: 10px;
 }
-.login .login-from div.inputtext input{
-	width: 250px;
-	height: 35px;
-	border: 1px solid #ccc;
-	border-radius: 5px;
-	float: right;
-	padding-left: 10px;
+
+.login .login-from div.inputtext span {
+    width: 150px;
+    text-align: right;
+    padding-right: 0px;
+    line-height: 35px;
+    height: 35px;
 }
-.login .login-from div.inputtext span{
-	width: 150px;
-	text-align: right;
-	padding-right: 0px;
-	line-height: 35px;
-	height: 35px;
+
+.login .login-from div:nth-child(2) {
+    margin-top: 25px;
+    margin-bottom: 25px;
 }
-.login .login-from div:nth-child(2){
-	margin-top: 25px;
-	margin-bottom: 25px;
+
+.login .login-from input[type=checkbox] {
+    position: relative;
+    top: 2px;
+    margin-right: 10px;
+    cursor: pointer;
 }
-.login .login-from input[type=checkbox]{
-	 position: relative;
-	 top: 2px;
-	 margin-right: 10px;
-	 cursor: pointer;
+
+.login .login-from div.nomargin {
+    margin: 0;
 }
-.login .login-from div.nomargin{
-	margin: 0;
+
+.login .login-from div:nth-child(3) {
+    height: 35px;
+    text-align: right;
+    line-height: 35px;
+    font-size: 12px;
+    color: #666;
 }
-.login .login-from div:nth-child(3){
-	height: 35px;
-	text-align: right;
-	line-height: 35px;
-	font-size: 12px;
-	color:#666;
+
+.login .login-from div:nth-child(3) a {
+    color: #666;
+    margin-right: 130px;
 }
-.login .login-from div:nth-child(3) a{
-	color:#666;
-	margin-right: 130px;
+
+.login .login-from div.btn {
+    text-align: right;
 }
-.login .login-from div.btn{
-	text-align: right;
-}
-.login .login-from div.btn button{
-	width: 150px;
-	height: 35px;
-	background:#0073d1;
-	border-radius: 3px;
-	cursor: pointer;
-	font-size: 12px;
-	color:#fff;
+
+.login .login-from div.btn button {
+    width: 150px;
+    height: 35px;
+    background: #0073d1;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 12px;
+    color: #fff;
 }
 
 .log-thirdParty {
-	width: 260px;
+    width: 260px;
     position: relative;
     margin-top: 14px;
     padding: 10px 0 10px 120px;
     text-align: right;
 }
+
 .log-thirdParty>p {
     font-size: 14px;
     line-height: 14px;
@@ -112,6 +128,7 @@ main .w{
     color: #939090;
     margin-bottom: 6px;
 }
+
 .log-thirdParty-iconBox {
     width: 24px;
     height: 18px;
@@ -122,84 +139,97 @@ main .w{
     vertical-align: top;
     cursor: pointer;
 }
-.log-thirdParty i{
-	 display: block;
+
+.log-thirdParty i {
+    display: block;
     width: 24px;
     height: 18px;
-    background-image: url(/static/img/common/login_icon.png) ;
+    background-image: url(/static/img/common/login_icon.png);
     background-repeat: no-repeat;
-    background-position:  0px -162px;
+    background-position: 0px -162px;
 }
+
 .log-thirdParty .icon-log-wb {
-    background-position:  0px -200px;
+    background-position: 0px -200px;
 }
+
 .log-thirdParty .icon-log-zfb {
-    background-position:0px -238px;
+    background-position: 0px -238px;
 }
 
 //注册界面样式
 .signup {
-	width: 500px;
-	height: 500px;
-	background: #f6f6f6;
-	padding-left: 40px;
+    width: 500px;
+    height: 500px;
+    background: #f6f6f6;
+    padding-left: 40px;
 }
+
 .log-subTitle {
     width: 100%;
     margin: 0;
     padding: 30px 0 24px 0;
 }
+
 .log-subTitle .log-subTitleRed {
     font-size: 18px;
     line-height: 18px;
     font-weight: bold;
     color: #e30543;
-    font-family: "Helvetica Neue",Arial,"微软雅黑","Microsoft YaHei","黑体","SimHei","宋体","SimSun",sans-serif;
+    font-family: "Helvetica Neue", Arial, "微软雅黑", "Microsoft YaHei", "黑体", "SimHei", "宋体", "SimSun", sans-serif;
 }
-.signup form>div{
-	padding-left: 50px;
-	height: 65px;
+
+.signup form>div {
+    padding-left: 50px;
+    height: 65px;
 }
-.signup form>div>label>span{
-	float: left;
-	width: 100px;
-	text-align: right;
-	margin-right: 5px;
-	height: 35px;
-	line-height: 35px;
+
+.signup form>div>label>span {
+    float: left;
+    width: 100px;
+    text-align: right;
+    margin-right: 5px;
+    height: 35px;
+    line-height: 35px;
 }
-.signup form>div input{
-       width: 250px;
-       height: 35px;
-       border: 1px solid #ccc;
-       border-radius: 5px;
-       padding-left: 10px;
+
+.signup form>div input {
+    width: 250px;
+    height: 35px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding-left: 10px;
 }
-.signup form>div>p{
-	text-align: center;
-	color:#ec003d;
-	font-size: 12px;
-	margin-top: 5px;
-	display: none;
+
+.signup form>div>p {
+    text-align: center;
+    color: #ec003d;
+    font-size: 12px;
+    margin-top: 5px;
+    display: none;
 }
-.signup form .mesageChoice input{
-	width: 15px;
-	height: 15px;
-	position: relative;
-	top: 4px;
+
+.signup form .mesageChoice input {
+    width: 15px;
+    height: 15px;
+    position: relative;
+    top: 4px;
 }
-.signup form .mesageChoice{
-	padding-left: 80px;
-	font-size: 12px;
-	text-align: center;
-	line-height: 20px;
-	padding-top: 10px;
+
+.signup form .mesageChoice {
+    padding-left: 80px;
+    font-size: 12px;
+    text-align: center;
+    line-height: 20px;
+    padding-top: 10px;
 }
-.signup form .mesageChoice a{
-	font-size: 12px;
-     color:#ec003d;
-     text-decoration: underline;
+
+.signup form .mesageChoice a {
+    font-size: 12px;
+    color: #ec003d;
+    text-decoration: underline;
 }
+
 .signup form div button {
     width: 150px;
     height: 35px;

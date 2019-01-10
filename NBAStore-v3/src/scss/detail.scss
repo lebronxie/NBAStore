@@ -40,22 +40,25 @@ main section {
                     width: 90px;
                     position: relative;
                     height: 440px;
-                    
+
                     .rowlist-content {
                         height: 410px;
                         overflow: hidden;
                         position: absolute;
                         top: 15px;
-                        ul{
+
+                        ul {
                             position: absolute;
                             top: 0;
                         }
+
                         li {
                             width: 86px;
                             height: 86px;
                             margin: 10px 0;
                             border: 2px solid #d1d3d4;
-                            img{
+
+                            img {
                                 width: 100%;
                             }
 
@@ -114,7 +117,7 @@ main section {
                         left: 0;
                         width: 150px;
                         height: 150px;
-                        background: rgba(0,0,0,0);
+                        background: rgba(0, 0, 0, 0);
                         box-shadow: 0 0 5px rgba(0, 0, 0, .5);
                         cursor: move;
                         display: none;
@@ -124,7 +127,8 @@ main section {
                     img {
                         width: 100%;
                         display: none;
-                        &.active{
+
+                        &.active {
                             display: block;
                         }
                     }
@@ -146,7 +150,8 @@ main section {
                         left: 0;
                         display: none;
                         width: 300%;
-                        &.active{
+
+                        &.active {
                             display: block;
                         }
                     }
@@ -158,6 +163,7 @@ main section {
             width: 50%;
             min-height: 500px;
             box-sizing: border-box;
+
             .info {
                 padding: 0 4%;
                 margin-bottom: 20px;
@@ -201,41 +207,47 @@ main section {
                     min-height: 40px;
 
                 }
-                >div{
+
+                >div {
                     height: 35px;
                     padding-top: 10px;
                     padding-bottom: 10px;
                     line-height: 35px;
-                    img{
+
+                    img {
                         vertical-align: middle;
                     }
-                     span{
+
+                    span {
                         display: inline-block;
                         width: 60px;
                         text-align: center;
                         background: #ccc;
-                        box-sizing:border-box;
-                         border: 2px solid #ccc;
-                         margin-right: 5px;
+                        box-sizing: border-box;
+                        border: 2px solid #ccc;
+                        margin-right: 5px;
 
                     }
-                    input[type=number]{
+
+                    input[type=number] {
                         width: 60px;
                         height: 35px;
                         text-align: center;
                     }
-                    .active{
-                        box-sizing:border-box;
+
+                    .active {
+                        box-sizing: border-box;
                         background: #fff;
-                         border: 2px solid #ccc;
-                        }
-                    .info1-title{
+                        border: 2px solid #ccc;
+                    }
+
+                    .info1-title {
                         background: #fff;
                         border: none;
 
                     }
                 }
-               
+
 
                 .btn {
                     border-radius: 3px;
@@ -250,8 +262,9 @@ main section {
                     box-shadow: none;
                     box-sizing: content-box;
                     cursor: pointer;
-                    transition:.5;
-                    &:hover{
+                    transition: .5;
+
+                    &:hover {
                         opacity: .8;
                     }
                 }

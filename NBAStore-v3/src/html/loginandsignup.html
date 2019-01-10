@@ -1,45 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<title>登陆注册</title>
 	<link rel="stylesheet" type="text/css" href="/css/loginandsignup.css">
 	<script src="/libs/require/require.js" data-main="/js/loginandsignup.js"> </script>
 </head>
+
 <body>
 	<header></header>
 	<main>
 		<div class="w">
 			<div class="log-title">
-			   <h2>欢迎登录NBA Store.</h2>
+				<h2>欢迎登录NBA Store.</h2>
 			</div>
 			<div class="content clearFix">
 				<div class="login fl">
 					<div class="log-subTitle events-emailandphone">
 						<p class="log-subTitleBlue">已注册用户</p>
 						<p>已有NBA球迷圈帐号，请使用注册手机号码登录<a class="login-email none">手机登录</a></p>
-					    <p>首次登录即可获得9折优惠券</p>
+						<p>首次登录即可获得9折优惠券</p>
 					</div>
 					<form id="login-from" class="login-from clearFix">
 						<div class="clearFix inputtext">
 							<label><span class="fl">*手机号码</span><input type="text" id="login_userphone"></label>
 						</div>
-						<div class="inputtext clearFix">	
+						<div class="inputtext clearFix">
 							<label><span class="fl">*密码</span><input type="password" id="login_password"></label>
 						</div>
 						<div class="clearFix">
-								<a href="javascript:;">忘记密码</a>
+							<a href="javascript:;">忘记密码</a>
 							<div class="fr nomargin">
 								<label>
 									<input type="checkbox" name="" id="rememberme">记住用户名和密码(7天)
 								</label>
-						    </div>
+							</div>
 						</div>
 						<div class="btn">
 							<button id="login">登录</button>
 						</div>
 					</form>
-                    <div class="log-thirdParty fr">
+					<div class="log-thirdParty fr">
 						<p>您还可以用以下方式登录：</p>
 						<div class="log-thirdParty-iconBox">
 							<i class="icon-log-qq"></i>
@@ -56,35 +58,37 @@
 					<div class="log-subTitle">
 						<p class="log-subTitleRed">新用户注册(创建NBA球迷圈帐号)</p>
 						<p>新用户首次注册，即可获得9折优惠券</p>
-				    </div>
-				    <form id="signup-from">
-				    	<div>
-				    		<label><span>*手机号码</span><input type="text" name="" id="signup_userphone"></label>
-				    		<p>输入的手机号格式不对</p>
-				    		<p>请输入手机号码</p>
-				    	</div>
-				    	<div>
-				    		<label><span>*密码</span><input type="password" name="" placeholder="请输入8-16位的数字或字母" id="signup_password"></label>
-				    		<p>输入的密码格式不对</p>
-				    		<p>请输入密码</p>
-				    	</div>
-				    	<div>
-				    		<label><span>*确认密码</span><input type="password" name="" placeholder="请输入8-16位的数字或字母" id="signup_password2"></label>
-				    		<p>两次密码不一致</p>
-				    		<p>请再次输入密码</p>
-				    	</div>
-				    	<div class="mesageChoice ">
-				    		<label>
-				    			<input type="checkbox" name="" id="agree">
-								我已阅读并遵守<a href="javascript:;">使用条款</a> 、<a href="javascript:;">隐私政策</a>&nbsp;和&nbsp;<br><a href="javascript:;"> 球迷圈条款</a>
-				    		</label>
-			        	</div>
-			        	<div><button id="signup">注册</button></div>
-				    </form>
+					</div>
+					<form id="signup-from">
+						<div>
+							<label><span>*手机号码</span><input type="text" name="" id="signup_userphone"></label>
+							<p>输入的手机号格式不对</p>
+							<p>请输入手机号码</p>
+						</div>
+						<div>
+							<label><span>*密码</span><input type="password" name="" placeholder="请输入8-16位的数字或字母" id="signup_password"></label>
+							<p>输入的密码格式不对</p>
+							<p>请输入密码</p>
+						</div>
+						<div>
+							<label><span>*确认密码</span><input type="password" name="" placeholder="请输入8-16位的数字或字母" id="signup_password2"></label>
+							<p>两次密码不一致</p>
+							<p>请再次输入密码</p>
+						</div>
+						<div class="mesageChoice ">
+							<label>
+								<input type="checkbox" name="" id="agree">
+								我已阅读并遵守<a href="javascript:;">使用条款</a> 、<a href="javascript:;">隐私政策</a>&nbsp;和&nbsp;<br><a href="javascript:;">
+									球迷圈条款</a>
+							</label>
+						</div>
+						<div><button id="signup">注册</button></div>
+					</form>
 				</div>
 			</div>
 		</div>
 	</main>
 	<footer></footer>
 </body>
+
 </html>

@@ -6,7 +6,7 @@ require(["./requirejs-config"], () => {
             url: url.baseUrlPhp + "/project/nbastore/api/v1/pullCart.php",
             type: "post",
             dataType: "json",
-            success: function(res) {
+            success: function (res) {
                 // console.log(res)
                 // 请求成功但是没有商品就显示如下页面信息
                 if (res.res_code === 1 && res.res_body.length == 0) {
@@ -29,24 +29,24 @@ require(["./requirejs-config"], () => {
 
 
                     //写购物车逻辑  单选 全选 计算总价 修改数据库等。。。
-                    
+
                     //全选按钮点击事件
-                    $("#all-btn").on("click", function() {
+                    $("#all-btn").on("click", function () {
                         //全选按钮改变状态
                         $(this).children().eq(0).toggleClass("on");
                         // 全选 商品列表
                         $("#cart-box .checkbox").prop("checked", $(this).children().eq(0).hasClass("on")).toggleClass("on");
-                        count();//计算总价
+                        count(); //计算总价
                     })
 
                     //点击顶部删除按钮 删除选中的商品
-                    $("#del-checked").on("click", function() {
+                    $("#del-checked").on("click", function () {
                         //判断是否有商品被选中
                         if ($("#cart-box .checkbox:checked").length > 0) {
                             if (confirm("确定删除选中商品吗？")) {
                                 //将要删除的商品id 打包以数组的方式发给后台 
                                 let delArr = [];
-                                $.each($("#cart-box .checkbox:checked"), function(i, item) {
+                                $.each($("#cart-box .checkbox:checked"), function (i, item) {
                                     let proId = $(item).parent().find(".proId").html();
                                     delArr.push(proId);
                                 })
@@ -58,16 +58,16 @@ require(["./requirejs-config"], () => {
                                     url: url.baseUrlPhp + "/project/nbastore/api/v1/delCarts.php",
                                     type: "post",
                                     dataType: "json",
-                                    success: function(res) {
+                                    success: function (res) {
                                         console.log(res)
                                         //删除数据库成功 前端删除相应商品行 更新商品总数和选中的商品总价 如果被全部删除完就判断 然后刷新页面
                                         if (res.res_code === 1) {
                                             $("#cart").html(res.res_body.allNum);
-                                            $("#cart-box .checkbox:checked").each(function(i, item) {
+                                            $("#cart-box .checkbox:checked").each(function (i, item) {
                                                 $(item).parent().parent().remove();
                                             })
                                             //删除之后查页面还有多少条商品如果为0 count函数会返回所有的checkbox jQuery对象 如果length =0 即代表购物车没有商品了
-                                            let num = count(); 
+                                            let num = count();
                                             if (num.length === 0) {
                                                 location.reload(); //刷新页面
                                             }
@@ -84,7 +84,7 @@ require(["./requirejs-config"], () => {
 
 
                     //单个选择按钮点击事件 每点击一次都计算一次选中的总价
-                    $("#cart-box .checkbox").on("click", function() {
+                    $("#cart-box .checkbox").on("click", function () {
                         //判断是否全选
                         if ($("#cart-box .checkbox:checked").length === $("#cart-box .checkbox").length) {
                             $("#all-btn").children().eq(0).addClass("on");
@@ -93,17 +93,17 @@ require(["./requirejs-config"], () => {
                         }
 
                         //将勾选过的当前商品目录发送给后台 计算总价
-                        
+
                         count();
 
 
                     })
-                    
+
                     //定义一个计算当前选中商品的总价
                     function count() {
                         let count = 0;
                         //计算所有打钩 的 商品行 总价 
-                        $.each($("#cart-box .checkbox:checked"), function(i, item) {
+                        $.each($("#cart-box .checkbox:checked"), function (i, item) {
                             count += parseInt($(item).parent().parent().find(".colprice").html().replace("¥", ""));
                         })
                         $("#all-price").html("¥" + count + ".00");
@@ -112,7 +112,7 @@ require(["./requirejs-config"], () => {
 
 
                     //每一行的价格 数量 * 单价   每次改变商品数量都会重新计算 重新改变数据库
-                    $(".number").on("change", function() {
+                    $(".number").on("change", function () {
                         //判断当前行有没有选择
 
                         //取消当前行选中按钮
@@ -132,7 +132,7 @@ require(["./requirejs-config"], () => {
                             url: url.baseUrlPhp + "/project/nbastore/api/v1/updateCart.php",
                             type: "post",
                             dataType: "json",
-                            success: function(res) {
+                            success: function (res) {
                                 // console.log(res)
                                 // 修改对应的总价
                                 let allprice = res.res_body.newPrice * res.res_body.number;
@@ -150,7 +150,7 @@ require(["./requirejs-config"], () => {
 
 
                     //点击删除按钮删除数据
-                    $(".coldel").on("click", function() {
+                    $(".coldel").on("click", function () {
                         if (confirm("确定删除当前商品吗？")) {
                             //找到当前商品的 proId 发送请求 删除数据库
                             // console.log($(this).parent().parent().find(".proId"));
@@ -163,7 +163,7 @@ require(["./requirejs-config"], () => {
                                 url: url.baseUrlPhp + "/project/nbastore/api/v1/delCart.php",
                                 type: "post",
                                 dataType: "json",
-                                success: function(res) {
+                                success: function (res) {
                                     console.log(res)
                                     $("#cart").html(res.res_body.allNum);
 
@@ -179,7 +179,7 @@ require(["./requirejs-config"], () => {
 
 
                     //点击支付按钮事件
-                    $("#payAll").on("click", function() {
+                    $("#payAll").on("click", function () {
                         // 判断是否登录
                         if (!$.cookie("user")) {
                             alert("请先登录,登录后有优惠")
@@ -187,11 +187,11 @@ require(["./requirejs-config"], () => {
                             if ($("#cart-box .checkbox:checked").length > 0) {
                                 let allPayArr = [];
                                 // 将选中的商品传给数据库
-                                $.each($("#cart-box .checkbox:checked"), function(i, item) {
+                                $.each($("#cart-box .checkbox:checked"), function (i, item) {
                                     // console.log(res)
                                     let current_proId = $(item).parent().find(".proId").html();
                                     let current_number = $(item).parent().parent().find(".number").val();
-                                    $.each(res.res_body, function(i, item) {
+                                    $.each(res.res_body, function (i, item) {
                                         if (item["proid"] === current_proId) {
                                             //将当前行的数据添加到结算pay数据库 带上数量
                                             item.number = current_number;
@@ -203,7 +203,7 @@ require(["./requirejs-config"], () => {
                                 //console.log(allPayArr);//将数组总的数据拼接成这样的字符串发送php文件
                                 let allPayStr = "insert into allPay (proid,title,picSrc,newPrice,oldPrice,size,number) values";
                                 let tempArr = [];
-                                $.each(allPayArr, function(i, item) {
+                                $.each(allPayArr, function (i, item) {
                                     let tempStr = `('${item.proid}','${item.title}','${item.picSrc}','${item.newPrice}','${item.oldPrice}','${item.size}','${item.number}')`;
                                     // console.log(tempStr);
                                     tempArr.push(tempStr);
@@ -222,7 +222,7 @@ require(["./requirejs-config"], () => {
                                     data: {
                                         allPayStr: allPayStr
                                     },
-                                    success: function(res) {
+                                    success: function (res) {
                                         console.log(res);
                                         window.location.href = "/html/pay.html"
                                     }
