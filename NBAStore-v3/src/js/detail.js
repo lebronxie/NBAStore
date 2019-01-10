@@ -115,7 +115,13 @@ require(["./requirejs-config"], () => {
                             data: { id, title, picSrc, newPrice, oldPrice, size, number },
                             success: function(res) {
                                 //拿到返回回来的 allNum 放在购物车图标小数字上
-                                $("#cart").html(res.res_body.allNum)
+                                $("#cart").html(res.res_body.allNum);
+                                $("#cart-info").stop().fadeIn(function(){
+                                     setTimeout(function(){
+                                        $("#cart-info").stop().fadeOut();
+                                     },800)
+                                });
+                                
                             },
                             dataType: "json"
 

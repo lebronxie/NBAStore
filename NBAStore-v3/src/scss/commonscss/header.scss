@@ -25,6 +25,22 @@ header {
     color: #fff;
     padding: 9px 0;
     position: relative;
+    .cart-info{
+         display: none;
+         color: #000;
+         position: absolute;
+         left:-80px;
+         top: 40px;
+         z-index: 1000;
+         width: 200px;
+         height: 200px;
+         border: 1px solid #ccc;
+         background: #fff;
+         line-height: 200px;
+         font-size: 20px;
+         text-align: center;
+         border-radius: 5px;
+    }
 }
 
 .header-box .header-list li a {

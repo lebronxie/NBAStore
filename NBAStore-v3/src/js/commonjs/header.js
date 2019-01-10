@@ -54,6 +54,7 @@ define(["url","jquery","cookie"], (url) => {
 	                success: function(res) {
 	                    //拿到返回回来的 allNum 放在购物车图标小数字上
 	                    $("#cart").html(res.res_body.allNum);
+	                    
 	                },
 	                dataType: "json"
 
@@ -73,7 +74,8 @@ define(["url","jquery","cookie"], (url) => {
 				 	})
 				 }else{
                    $(".header-nav").css({
-				 		"position":"relative"
+				 		"position":"relative",
+				 		"z-index" :0
 				 	})
                    $("main").css({
 				 		"margin-top":0
