@@ -1,6 +1,12 @@
 require(["./requirejs-config"], () => {
   //引入index需要依赖的模块
   require(["jquery", "url", "template", "cookie", "header", "footer"], ($, url, template) => {
+    //判断是否登录 没登录直接跳转到登录页面 如果在支付页退出 会跳转到登录页面
+    if(!$.cookie("user")){
+      window.location.href = "/html/loginandsignup.html";
+    }
+
+    
     // 通过判断url地址 是否 有 id 判断 是否 是直接购买过来的 
     if (window.location.search === "") {
       console.log("从购物车跳过来的");

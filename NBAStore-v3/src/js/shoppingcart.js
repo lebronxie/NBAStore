@@ -137,7 +137,7 @@ require(["./requirejs-config"], () => {
                                 // 修改对应的总价
                                 let allprice = res.res_body.newPrice * res.res_body.number;
                                 //将接收到的返回值 计算后 赋值给当前行的总计
-                                that.parent().next().children().eq(0).html("¥" + allprice);
+                                that.parent().next().children().eq(0).html("¥" + allprice + ".00");
                                 if (that.parent().prev().prev().children().eq(0).prop("checked")) {
                                     count();
                                 }

@@ -21,7 +21,7 @@ require(["./requirejs-config"], () => {
                 // console.log(res);
                 if (res.res_code === 1) {
                     let list = res.res_body.data;
-                    console.log(list)
+                    // console.log(list)
                     //通过模板引擎渲染结构
                     let html = template("detail", {
                         productDetail: res.res_body.data
@@ -160,8 +160,6 @@ require(["./requirejs-config"], () => {
                             window.location.href = "/html/loginandsignup.html";
                         } else {
                             //发送请求 将该单品的信息传给数据库 
-
-
                             let list = res.res_body.data;
                             let proId = list.id;
                             let title = list.title;
